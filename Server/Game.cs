@@ -5,6 +5,7 @@ namespace Server
 {
 	public class Game
 	{
+        private string dani;
 		private string name;
 		private Maze maze;
 		private bool isAvailable;
@@ -13,6 +14,7 @@ namespace Server
 
 		public Game(string name, Maze maze)
 		{
+            this.dani = "123";
 			this.Name = name;
 			this.Maze = maze;
 			this.IsAvailable = true;

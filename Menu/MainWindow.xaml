@@ -1,0 +1,17 @@
+﻿<Window x:Class="Menu.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Menu"
+        mc:Ignorable="d"
+        xmlns:Controls="clr-namespace:Menu.controls"
+        Title="MainWindow" Height="350" Width="325">
+    <Grid>
+        <Button x:Name="Single_Player" Content="Single Player" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Margin="153,89,90.667,211.667" Click="Single_Player_Click"/>
+        <Button x:Name="Multi_Player" Content="Multi Player" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Margin="152,126,91.667,174.667" Click="Multi_Player_Click"/>
+        <Button Content="Settings" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Margin="152,165,91.667,135.667" Click="Settings_Click"/>
+        <Image Margin="10,0,194.667,255.667" Source="cover_large2.jpg" Stretch="Fill"/>
+
+    </Grid>
+</Window>

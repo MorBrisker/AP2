@@ -9,6 +9,7 @@ namespace Server
 {
 	public class Controller : IController
 	{
+        
 		private Dictionary<string, ICommand> commands;
 		private IModel model;
 		private IClientHandler clientHandler;

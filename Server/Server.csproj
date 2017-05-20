@@ -74,7 +74,6 @@
     <Compile Include="Server.cs" />
     <Compile Include="SolveMazeCommand.cs" />
     <Compile Include="StartGameCommand.cs" />
-    <Compile Include="ViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

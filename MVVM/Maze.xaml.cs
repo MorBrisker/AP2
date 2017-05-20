@@ -13,21 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Menu.controls
+namespace MVVM
 {
     /// <summary>
-    /// Interaction logic for MultiPlayerMenu.xaml
+    /// Interaction logic for Maze.xaml
     /// </summary>
-    public partial class MultiPlayerMenu : UserControl
+    public partial class Maze : UserControl
     {
-        public MultiPlayerMenu()
+        public Maze()
         {
             InitializeComponent();
-        }
-
-        private void btnStart_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

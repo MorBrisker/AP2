@@ -10,7 +10,7 @@ namespace Client
 {
     class Client
     {
-        public static void Main(string[] args)
+        public static void client(string[] args)
         {
             TcpClient client = null;
             bool isConnect = false;
@@ -19,7 +19,6 @@ namespace Client
             BinaryWriter writer = null;
             int port = int.Parse(ConfigurationManager.AppSettings["PORT"]);
             IPAddress ip = IPAddress.Parse(ConfigurationManager.AppSettings["IP"]);
-            //IPEndPoint ep = new IPEndPoint(IPAddress.Parse(ip), port);
             IPEndPoint ep = new IPEndPoint(ip, port);
             command = Console.ReadLine();
             while (true)

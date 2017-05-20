@@ -84,7 +84,7 @@ namespace Server
         public void NonContinuousCommand(string commandLine, TcpClient client, BinaryWriter writer)
         {
             string result = controller.ExecuteCommand(commandLine, client);
-            if(!commandLine.Contains("close"))
+            if(!commandLine.Contains("lose"))
             {
                 writer.Flush();
                 writer.Write(result);

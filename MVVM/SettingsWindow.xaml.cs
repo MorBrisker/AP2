@@ -12,24 +12,28 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Menu
+namespace MVVM
 {
     /// <summary>
-    /// Interaction logic for SettingsViewModel.xaml
+    /// Interaction logic for SettingsWindow.xaml
     /// </summary>
     public partial class SettingsWindow : Window
     {
-        //private SettingsViewModel vm;
+        private SettingsViewModel vm;
+        private ISettingsModel m;
 
         public SettingsWindow()
         {
             InitializeComponent();
-            //vm = new SettingsViewModel();
-            //this.DataContext = vm;
+            m = new ApplicationSettingsModel();
+            vm = new SettingsViewModel(m);
+            this.DataContext = vm;
         }
+
+       
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
-            //vm.SaveSettings();
+            vm.SaveSettings();
             MainWindow win = (MainWindow)Application.Current.MainWindow;
             win.Show();
             this.Close();

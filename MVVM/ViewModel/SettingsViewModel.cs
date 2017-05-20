@@ -5,16 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 
-namespace MVVM
+namespace MVVM.ViewModel
 {
     public class SettingsViewModel : ViewModel
     {
         private ISettingsModel model;
         //private SettingsWindow
 
-        public SettingsViewModel(ISettingsModel model)
+        public SettingsViewModel()
         {
-            this.model = model;
+            this.model = new ApplicationSettingsModel();
         }
         public string ServerIP
         {

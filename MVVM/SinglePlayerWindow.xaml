@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MVVM"
         mc:Ignorable="d"
-        Title="SinglePlayerWindow" Height="180" Width="200">
+        Title="SinglePlayerWindow" Height="180" Width="220">
     <Grid>
-        <local:SinglePlayer Grid.Row="2" Grid.ColumnSpan="2" Loaded="SinglePlayer_Loaded"/>
+        <local:SinglePlayer Grid.Row="2" Grid.ColumnSpan="2"/>
 
     </Grid>
 </Window>

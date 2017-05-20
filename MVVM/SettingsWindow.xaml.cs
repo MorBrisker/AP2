@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MVVM.ViewModel;
 
 namespace MVVM
 {
@@ -20,13 +21,13 @@ namespace MVVM
     public partial class SettingsWindow : Window
     {
         private SettingsViewModel vm;
-        private ISettingsModel m;
+        //private ISettingsModel m;
 
         public SettingsWindow()
         {
             InitializeComponent();
-            m = new ApplicationSettingsModel();
-            vm = new SettingsViewModel(m);
+            //m = new ApplicationSettingsModel();
+            vm = new SettingsViewModel();
             this.DataContext = vm;
         }
 

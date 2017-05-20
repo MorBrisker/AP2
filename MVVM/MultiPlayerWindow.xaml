@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MVVM"
         mc:Ignorable="d"
-        Title="MultiPlayerWindow" Height="220" Width="200">
+        Title="MultiPlayerWindow" Height="250" Width="230">
     <Grid TextBlock.FontSize="14" >
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -31,7 +31,7 @@
             <ComboBoxItem>BFS</ComboBoxItem>
             <ComboBoxItem>DFS</ComboBoxItem>
         </ComboBox>
-        <Button x:Name="btnJoin" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" Margin="5" Padding="5" />
+        <Button x:Name="btnJoin" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" Margin="5" Padding="5" Content="Join Game" />
         <local:SinglePlayer Grid.Row="2" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>

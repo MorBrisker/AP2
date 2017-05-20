@@ -10,20 +10,21 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace MVVM
 {
-    public partial class SinglePlayerWindow : Window
+    /// <summary>
+    /// Interaction logic for SinglePlayer.xaml
+    /// </summary>
+    public partial class SinglePlayer : UserControl
     {
-        public SinglePlayerWindow()
+        public SinglePlayer()
         {
             InitializeComponent();
         }
+        private void btnStart_Click(object sender, RoutedEventArgs e) { }
 
-        private void btnStart_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

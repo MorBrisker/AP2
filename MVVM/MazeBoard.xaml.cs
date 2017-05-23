@@ -23,8 +23,12 @@ namespace MVVM
     /// </summary>
     public partial class MazeBoard : UserControl
     {
-        Position currentPos;
-        Rectangle[,] rectanglesArr;
+        private Position currentPos;
+        private Rectangle[,] rectanglesArr;
+        private Maze m;
+        private int recHeight, recWidth;
+        private string charArr;
+        private Image myImage;
 
         public MazeBoard()
         {
@@ -34,7 +38,7 @@ namespace MVVM
 
         public void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            DrawMaze();
+            CreateMaze();
         }
 
         public string MString
@@ -46,73 +50,122 @@ namespace MVVM
 
         public Position CalcCurrentPos()
         {
-
+            return new Position();
         }
-        public void CalcMazeToDraw()
-        {
 
-        }
         public void CreateMaze ()
         {
             while (MString == null)
             {
                 Thread.Sleep(1);
             }
-            Maze m = Maze.FromJSON(MString);
-            int rows = m.Rows;
-            int cols = m.Cols;
-            string name = m.Name;
-            
-            if (rows == 0 || cols == 0 || name == null)
+            this.m = Maze.FromJSON(MString);            
+            if (m.Rows == 0 || m.Cols == 0 || m.Name == null)
             {
                 return;
             }
 
-            int recHeight = (int)mazeCanvas.Height / rows;
-            int recWidth = (int)mazeCanvas.Width / cols;
-            rectanglesArr = new Rectangle[rows, cols];
-            string charArr = m.ToString();
-            currentPos = m.InitialPos;
+            this.recHeight = (int)mazeCanvas.Height / m.Rows;
+            this.recWidth = (int)mazeCanvas.Width / m.Cols;
+            this.rectanglesArr = new Rectangle[m.Rows, m.Cols];
+            this.charArr = m.ToString();
+            this.currentPos = m.InitialPos;
+            DrawMaze();
         }
         public void DrawMaze()
         {
-
             int counter = 0;
-            for (int i = 0; i < rows; i++)
+            for (int i = 0; i < m.Rows; i++)
             {
-                for (int j = 0; j < cols; j++)
+                for (int j = 0; j < m.Cols; j++)
                 {
                     Rectangle rect = new Rectangle();
                     rect.Height = recHeight;
                     rect.Width = recWidth;
-                    rectanglesArr[i, j] = rect;
-                    if (charArr[counter] == '1')
+                    this.rectanglesArr[i, j] = rect;
+                    if (this.charArr[counter] == '1')
                     {
-                        rectanglesArr[i, j].Fill = new SolidColorBrush(System.Windows.Media.Colors.Black);
+                        this.rectanglesArr[i, j].Fill = new SolidColorBrush(System.Windows.Media.Colors.Black);
                     }
-                    else if (charArr[counter] == '0')
+                    else if (this.charArr[counter] == '0')
                     {
-                        rectanglesArr[i, j].Fill = new SolidColorBrush(System.Windows.Media.Colors.White);
+                        this.rectanglesArr[i, j].Fill = new SolidColorBrush(System.Windows.Media.Colors.Transparent);
                     }
-                    else if (charArr[counter] == '*')
+                    else if (this.charArr[counter] == '*')
                     {
-                        rectanglesArr[i, j].Fill = new SolidColorBrush(System.Windows.Media.Colors.Yellow);
+                        this.rectanglesArr[i, j].Fill = new SolidColorBrush(System.Windows.Media.Colors.Transparent);
+                        myImage = new Image()
+                        {
+
+                            Source = new BitmapImage(new Uri(@"C:\Users\מור\Source\Repos\AP2\MVVM\unicorn.jpg")),
+                            Width = this.recWidth,
+                            Height = this.recHeight
+                        };
+                        mazeCanvas.Children.Add(myImage);
+                        Canvas.SetLeft(myImage, this.recWidth * m.InitialPos.Col);
+                        Canvas.SetTop(myImage, this.recHeight * m.InitialPos.Row);
+                        counter++;
+                        break;
                     }
-                    else if (charArr[counter] == '#')
+                    else if (this.charArr[counter] == '#')
                     {
-                        rectanglesArr[i, j].Fill = new SolidColorBrush(System.Windows.Media.Colors.Blue);
+                        this.rectanglesArr[i, j].Fill = new SolidColorBrush(System.Windows.Media.Colors.Blue);
                     }
                     else
                     {
                         counter++;
                         continue;
                     }
-                    mazeCanvas.Children.Add(rectanglesArr[i, j]);
-                    Canvas.SetLeft(rectanglesArr[i, j], recWidth * j);
-                    Canvas.SetTop(rectanglesArr[i, j], recHeight * i);
+                    mazeCanvas.Children.Add(this.rectanglesArr[i, j]);
+                    Canvas.SetLeft(this.rectanglesArr[i, j], this.recWidth * j);
+                    Canvas.SetTop(this.rectanglesArr[i, j], this.recHeight * i);
                     counter++;
                 }
                 counter += 2;
+            }
+        }
+
+        public void mazeCanvas_KeyDown(object sender, KeyEventArgs e)
+        {
+            int row = this.currentPos.Row;
+            int col = this.currentPos.Col;
+            if (e.Key == Key.Left)
+            {
+                if (col - 1 >= 0 && m[row,col-1] == CellType.Free)
+                {
+                    Canvas.SetLeft(myImage, this.recWidth * (col-1));
+                    Canvas.SetTop(myImage, this.recHeight * row);
+                    this.currentPos.Col -= 1;
+                }
+            }
+            if (e.Key == Key.Right)
+            {
+                if (col + 1 < m.Cols && m[row, col + 1] == CellType.Free)
+                {
+                    Canvas.SetLeft(myImage, this.recWidth * (col+1));
+                    Canvas.SetTop(myImage, this.recHeight * row);
+                    this.currentPos.Col += 1;
+                }
+            }
+            if (e.Key == Key.Up)
+            {
+                if (row - 1 >= 0 && m[row - 1, col] == CellType.Free)
+                {
+                    Canvas.SetLeft(myImage, this.recWidth * col);
+                    Canvas.SetTop(myImage, this.recHeight * (row - 1));
+                    this.currentPos.Row -= 1;
+
+                }
+            }
+            if (e.Key == Key.Down)
+            {
+                if (row + 1 < m.Rows && m[row + 1, col] == CellType.Free)
+                {
+                    Canvas.SetLeft(myImage, this.recWidth * col);
+                    Canvas.SetTop(myImage, this.recHeight * (row + 1));
+                    this.currentPos.Row += 1;
+
+                }
             }
         }
 

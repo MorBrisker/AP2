@@ -7,9 +7,11 @@
              Loaded="UserControl_Loaded"
 
              mc:Ignorable="d" 
-             d:DesignHeight="270" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300">
 
     <Viewbox>
-        <Canvas Name="mazeCanvas" HorizontalAlignment="Stretch" Height="270" VerticalAlignment="Stretch" Width="300"/>
+        <Border BorderBrush="Black" BorderThickness="3">
+            <Canvas Name="mazeCanvas" HorizontalAlignment="Stretch" Height="300" VerticalAlignment="Stretch" Width="300"/>
+        </Border>
     </Viewbox>
 </UserControl>

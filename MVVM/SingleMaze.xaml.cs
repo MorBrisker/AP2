@@ -27,7 +27,16 @@ namespace MVVM
             InitializeComponent();
             //mazey.UserControl_Loaded();
         }
+        public void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            var window = Window.GetWindow(this);
+            window.KeyDown += Grid_KeyDown;
+        }
 
+        private void Grid_KeyDown(object sender, KeyEventArgs e)
+        {
+            mazey.mazeCanvas_KeyDown(sender, e);
+        }
         private void RestartGame_Click(object sender, RoutedEventArgs e)
         {
             

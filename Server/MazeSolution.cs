@@ -59,5 +59,9 @@ namespace Server
 			return mazeSolObj.ToString();
 		}
 
-	}
+        public string SolToString()
+        {
+            return this.sol;
+        }
+    }
 }

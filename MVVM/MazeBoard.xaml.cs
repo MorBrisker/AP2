@@ -53,13 +53,13 @@ namespace MVVM
             return new Position();
         }
 
-        public void CreateMaze ()
+        public void CreateMaze()
         {
             while (MString == null)
             {
                 Thread.Sleep(1);
             }
-            this.m = Maze.FromJSON(MString);            
+            this.m = Maze.FromJSON(MString);
             if (m.Rows == 0 || m.Cols == 0 || m.Name == null)
             {
                 return;
@@ -126,30 +126,37 @@ namespace MVVM
                 counter += 2;
             }
         }
+        public void msgShow()
+        {
+            if (currentPos.Col == m.GoalPos.Col && currentPos.Row == m.GoalPos.Row)
+            {
+                MessageBox.Show("You are almost as good as mor\n");
+            }
+        }
 
-        public void mazeCanvas_KeyDown(object sender, KeyEventArgs e)
+        public void mazeCanvas_KeyDown(object sender, Key e)
         {
             int row = this.currentPos.Row;
             int col = this.currentPos.Col;
-            if (e.Key == Key.Left)
+            if (e == Key.Left)
             {
-                if (col - 1 >= 0 && m[row,col-1] == CellType.Free)
+                if (col - 1 >= 0 && m[row, col - 1] == CellType.Free)
                 {
-                    Canvas.SetLeft(myImage, this.recWidth * (col-1));
+                    Canvas.SetLeft(myImage, this.recWidth * (col - 1));
                     Canvas.SetTop(myImage, this.recHeight * row);
                     this.currentPos.Col -= 1;
                 }
             }
-            else if (e.Key == Key.Right)
+            else if (e == Key.Right)
             {//
                 if (col + 1 < m.Cols && m[row, col + 1] == CellType.Free)
                 {
-                    Canvas.SetLeft(myImage, this.recWidth * (col+1));
+                    Canvas.SetLeft(myImage, this.recWidth * (col + 1));
                     Canvas.SetTop(myImage, this.recHeight * row);
                     this.currentPos.Col += 1;
                 }
             }
-            else if (e.Key == Key.Up)
+            else if (e == Key.Up)
             {
                 if (row - 1 >= 0 && m[row - 1, col] == CellType.Free)
                 {
@@ -159,21 +166,26 @@ namespace MVVM
 
                 }
             }
-            else if (e.Key == Key.Down)
+            else if (e == Key.Down)
             {
                 if (row + 1 < m.Rows && m[row + 1, col] == CellType.Free)
                 {
                     Canvas.SetLeft(myImage, this.recWidth * col);
                     Canvas.SetTop(myImage, this.recHeight * (row + 1));
                     this.currentPos.Row += 1;
-
                 }
             }
-            if (currentPos.Col == m.GoalPos.Col && currentPos.Row == m.GoalPos.Row)
-            {
-                MessageBox.Show("You are almost as good as mor\n");
-                //
-            }
         }
+        public void RestarGame()
+        {
+            int col = m.InitialPos.Col;
+            int row = m.InitialPos.Row;
+            Canvas.SetLeft(myImage, this.recWidth * col);
+            Canvas.SetTop(myImage, this.recHeight * (row));
+            this.currentPos.Row = m.InitialPos.Row;
+            this.currentPos.Col = m.InitialPos.Col;
+
+        }
+
     }
 }

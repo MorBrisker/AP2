@@ -15,24 +15,17 @@ using MVVM.ViewModel;
 
 namespace MVVM
 {
-    /// <summary>
-    /// Interaction logic for SettingsWindow.xaml
-    /// </summary>
     public partial class SettingsWindow : Window
     {
         private SettingsViewModel vm;
-        //private ISettingsModel m;
 
         public SettingsWindow()
         {
             vm = new SettingsViewModel();
             this.DataContext = vm;
             InitializeComponent();
-            //m = new ApplicationSettingsModel();
-          
         }
 
-       
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
             vm.SaveSettings();

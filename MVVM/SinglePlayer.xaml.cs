@@ -29,7 +29,6 @@ namespace MVVM
             get { return (string)GetValue(MNameProperty); }
             set { SetValue(MNameProperty, value); }
         }
-        // Using a DependencyProperty as the backing store for Rows. This enables animation, styling, binding, etc...
         public static readonly DependencyProperty MNameProperty =
          DependencyProperty.Register("MName", typeof(string), typeof(SinglePlayer));
 
@@ -47,10 +46,7 @@ namespace MVVM
             get { return (int)GetValue(ColsProperty); }
             set { SetValue(ColsProperty, value); }
         }
-        // Using a DependencyProperty as the backing store for Rows. This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ColsProperty =
          DependencyProperty.Register("Cols", typeof(int), typeof(SinglePlayer));
-
-
     }
 }

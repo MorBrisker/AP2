@@ -32,10 +32,6 @@ namespace MVVM
             Window singleMaze = new SingleMaze(vm);
             singleMaze.Show();
             this.Hide();
-            //Maze maze = new Maze();
-            //maze.Order = mazeOrder;
-
-            //this.Close();
         }
     }
 }

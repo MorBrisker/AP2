@@ -13,6 +13,7 @@ namespace MVVM.Model
     {
         public string StartGame(string command)
         {
+            string r;
             IPEndPoint ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 8000);
             TcpClient client = new TcpClient();
             client.Connect(ep);
@@ -21,10 +22,10 @@ namespace MVVM.Model
             using (BinaryWriter writer = new BinaryWriter(stream))
             {
                 writer.Write(command);
-                return reader.ReadString();
+                r = reader.ReadString();
             }
             client.Close();
-
+            return r;
         }
     }
 }

@@ -11,18 +11,17 @@ namespace MVVM.ViewModel
 {
     public class SinglePlayerViewModel : ViewModel
     {
-        private int rows;
-        private int cols;
+        private int rows, cols, algo;
         private string name, mazeString;
         private Maze mazePuzzle;
-
         private SinglePlayerModel m;
-        //private Window v;
-        
+
         public SinglePlayerViewModel()
         {
+            MazeCols = MVVM.Properties.Settings.Default.MazeCols;
+            MazeRows = MVVM.Properties.Settings.Default.MazeRows;
+            Algo = MVVM.Properties.Settings.Default.SearchAlgorithm;
             this.m = new SinglePlayerModel();
-            //this.v = v;
         }
 
         public int MazeRows {
@@ -71,6 +70,16 @@ namespace MVVM.ViewModel
             }
         }
 
+        public int Algo
+        {
+            get { return this.algo; }
+            set
+            {
+                this.algo = value;
+                //NotifyPropertyChanged("SearchAlgorithm");
+            }
+        }
+
         public void Start()
         {
             string command = "generate " + name + " " + rows + " " + cols;
@@ -79,5 +88,10 @@ namespace MVVM.ViewModel
             NotifyPropertyChanged("MazeString");
             NotifyPropertyChanged("MazePuzzle");
         }
+        public string SolveMaze()
+        {
+            string command = "solve " + name + " " + Algo;
+            return m.StartGame(command);
+         }
     }
 }

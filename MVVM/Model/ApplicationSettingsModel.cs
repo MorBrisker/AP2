@@ -9,7 +9,6 @@ namespace MVVM
 {
     public class ApplicationSettingsModel : ISettingsModel
     {
-
         public string ServerIP
         {
             get { return MVVM.Properties.Settings.Default.ServerIP; }
@@ -20,13 +19,24 @@ namespace MVVM
             get { return MVVM.Properties.Settings.Default.ServerPort; }
             set { MVVM.Properties.Settings.Default.ServerPort = value; }
         }
+        public int MazeRows
+        {
+            get { return MVVM.Properties.Settings.Default.MazeRows; }
+            set { MVVM.Properties.Settings.Default.MazeRows = value; }
+        }
+        public int MazeCols
+        {
+            get { return MVVM.Properties.Settings.Default.MazeCols; }
+            set { MVVM.Properties.Settings.Default.MazeCols = value; }
+        }
+        public int SearchAlgorithm
+        {
+            get { return MVVM.Properties.Settings.Default.SearchAlgorithm; }
+            set { MVVM.Properties.Settings.Default.SearchAlgorithm = value; }
+        }
         public void SaveSettings()
         {
             MVVM.Properties.Settings.Default.Save();
         }
-        public int MazeRows { get; set; }
-        public int MazeCols { get; set; }
-        public int SearchAlgorithm { get; set; }
-
     }
 }

@@ -18,10 +18,9 @@
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
-
-            <Button Grid.Column="0" Content="Restart game"/>
-            <Button Grid.Column="1" Content="Solve maze"/>
-            <Button Grid.Column="2" Content="Main menu"/>
+            <Button Grid.Column="0" Content="Restart game" Click="RestartGame_Click"/>
+            <Button Grid.Column="1" Content="Solve maze" Click="SolveMaze_Click"/>
+            <Button Grid.Column="2" Content="Main menu" Click="MainMenu_Click"/>
             <Controls:MazeBoard Grid.Row="1" Grid.ColumnSpan="3" x:Name="mazey" MString="{Binding MazeString,Mode=TwoWay}"  KeyDown="Grid_KeyDown" Loaded="UserControl_Loaded" />
             </Grid>
     </Viewbox>

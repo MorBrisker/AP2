@@ -25,7 +25,7 @@ namespace MVVM.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("8888")]
         public int ServerPort {
             get {
                 return ((int)(this["ServerPort"]));
@@ -37,13 +37,49 @@ namespace MVVM.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("ServerIP")]
+        [global::System.Configuration.DefaultSettingValueAttribute("127.0.0.1")]
         public string ServerIP {
             get {
                 return ((string)(this["ServerIP"]));
             }
             set {
                 this["ServerIP"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        public int MazeCols {
+            get {
+                return ((int)(this["MazeCols"]));
+            }
+            set {
+                this["MazeCols"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        public int MazeRows {
+            get {
+                return ((int)(this["MazeRows"]));
+            }
+            set {
+                this["MazeRows"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int SearchAlgorithm {
+            get {
+                return ((int)(this["SearchAlgorithm"]));
+            }
+            set {
+                this["SearchAlgorithm"] = value;
             }
         }
     }

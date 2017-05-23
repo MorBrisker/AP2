@@ -14,20 +14,16 @@ using System.Windows.Shapes;
 
 namespace MVVM
 {
-    /// <summary>
-    /// Interaction logic for MultiPlayerWindow.xaml
-    /// </summary>
-    public partial class MultiPlayerWindow : Window
+
+    public partial class MultiMaze : Window
     {
-        public MultiPlayerWindow()
+        public MultiMaze()
         {
             InitializeComponent();
         }
+        private void backToMainMenu_Click(object sender, RoutedEventArgs e) { }
+        private void Grid_KeyDown(object sender, KeyEventArgs e) { }
+        public void UserControl_Loaded(object sender, RoutedEventArgs e) { }
 
-        private void btnStart_Click(object sender, RoutedEventArgs e)
-        {
-            Window multiMaze = new MultiMaze();
-            multiMaze.Show();
-        }
     }
 }

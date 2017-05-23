@@ -73,6 +73,9 @@
     <Compile Include="Model\Client.cs" />
     <Compile Include="Model\ISettingsModel.cs" />
     <Compile Include="Model\SinglePlayerModel.cs" />
+    <Compile Include="MultiMaze.xaml.cs">
+      <DependentUpon>MultiMaze.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MultiPlayerWindow.xaml.cs">
       <DependentUpon>MultiPlayerWindow.xaml</DependentUpon>
     </Compile>
@@ -104,6 +107,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MazeBoard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MultiMaze.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

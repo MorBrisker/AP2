@@ -22,14 +22,14 @@ namespace MVVM
     public partial class SingleMaze : Window
     {
         private SinglePlayerViewModel vm;
+
         public SingleMaze(SinglePlayerViewModel vm)
         {
             this.vm = vm;
             this.DataContext = vm;
-
             InitializeComponent();
-            //mazey.UserControl_Loaded();
         }
+
         public void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             var window = Window.GetWindow(this);
@@ -41,6 +41,7 @@ namespace MVVM
             mazey.mazeCanvas_KeyDown(sender, e.Key);
             mazey.msgShow();
         }
+
         private void RestartGame_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Dispatcher.Invoke(DispatcherPriority.Background,
@@ -64,7 +65,6 @@ namespace MVVM
             {
                 Application.Current.Dispatcher.Invoke(DispatcherPriority.Background,
                     new Action(() => move(sender, sol, i)));
-
             }
         }
 
@@ -92,7 +92,6 @@ namespace MVVM
             }
             Thread.Sleep(300);
         }
-
 
         private void MainMenu_Click(object sender, RoutedEventArgs e)
         {

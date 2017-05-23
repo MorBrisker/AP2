@@ -29,6 +29,11 @@ namespace SearchAlgorithmsLib
 				pool.Add(m);
 				return m;
 			}
+
+            public static void ClearPool()
+            {
+                pool.Clear();
+            }
 		}
 
 		private T state;

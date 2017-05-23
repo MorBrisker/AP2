@@ -33,5 +33,6 @@
         </ComboBox>
         <Button x:Name="btnJoin" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" Margin="5" Padding="5" Content="Join Game" />
         <local:SinglePlayer Grid.Row="2" Grid.ColumnSpan="2"/>
+        <Button Content="Start" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2" Margin="80,107.667,0,0" Grid.Row="2" Click="btnStart_Click"/>
     </Grid>
 </Window>

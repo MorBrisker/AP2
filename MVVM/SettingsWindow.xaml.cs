@@ -25,10 +25,11 @@ namespace MVVM
 
         public SettingsWindow()
         {
-            InitializeComponent();
-            //m = new ApplicationSettingsModel();
             vm = new SettingsViewModel();
             this.DataContext = vm;
+            InitializeComponent();
+            //m = new ApplicationSettingsModel();
+          
         }
 
        

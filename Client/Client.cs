@@ -6,21 +6,21 @@ using System.IO;
 using System.Collections.Generic;
 using System.Configuration;
 
-namespace MVVM
+namespace Client
 {
     class Client
     {
-        public static void client(string command, bool isConnect)
+        public static void main(string[] args)
         {
             TcpClient client = null;
-            //bool isConnect = false;
-            //string command = null;
+            bool isConnect = false;
+            string command = null;
             BinaryReader reader = null;
             BinaryWriter writer = null;
             int port = int.Parse(ConfigurationManager.AppSettings["PORT"]);
             IPAddress ip = IPAddress.Parse(ConfigurationManager.AppSettings["IP"]);
             IPEndPoint ep = new IPEndPoint(ip, port);
-            //command = Console.ReadLine();
+            command = Console.ReadLine();
             while (true)
             {
                 if (!isConnect)
@@ -67,8 +67,7 @@ namespace MVVM
                 writer.Flush();
                 writer.Write(command);
                 writer.Flush();
-
-                ///command = Console.ReadLine();
+                command = Console.ReadLine();
             }
         }
     }

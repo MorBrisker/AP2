@@ -69,6 +69,8 @@ namespace Server
 					sol = dfs.Search(newMaze);
 					nodesEvaluated = dfs.GetNumOfNodesEvaluated();
 				}
+
+                State<Position>.StatePool.ClearPool();
 				MazeSolution ms = new MazeSolution(sol, name, nodesEvaluated);
 				ms.SolutionPath();
 				this.mazeSolutionCache.Add(name, ms);

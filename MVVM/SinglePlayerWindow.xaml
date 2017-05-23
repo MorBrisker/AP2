@@ -3,11 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MVVM"
+        xmlns:Controls="clr-namespace:MVVM"
+
         mc:Ignorable="d"
         Title="SinglePlayerWindow" Height="180" Width="220">
     <Grid>
-        <local:SinglePlayer Grid.Row="2" Grid.ColumnSpan="2"/>
+       
+        <Button Content="Start" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="71,108,0,0" Click="btnStart_Click"/>
+        <Controls:SinglePlayer x:Name="single" Grid.Row="2" Grid.ColumnSpan="2" MName="{Binding MazeName}" Rows="{Binding MazeRows}" Cols="{Binding MazeCols}" />
 
     </Grid>
 </Window>

@@ -11,31 +11,38 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MazeLib;
 using MVVM.ViewModel;
 
 namespace MVVM
 {
-    public partial class SinglePlayerWindow : Window
+    public partial class SingleMaze : Window
     {
-        private SinglePlayerViewModel vm;
-        
-        public SinglePlayerWindow()
+        private ViewModel.ViewModel vm;
+        public SingleMaze(SinglePlayerViewModel vm)
         {
-            vm = new SinglePlayerViewModel();
+            this.vm = vm;
             this.DataContext = vm;
+
             InitializeComponent();
+            //mazey.UserControl_Loaded();
         }
 
-        private void btnStart_Click(object sender, RoutedEventArgs e)
+        private void RestartGame_Click(object sender, RoutedEventArgs e)
         {
-            vm.Start();
-            Window singleMaze = new SingleMaze(vm);
-            singleMaze.Show();
-            this.Hide();
-            //Maze maze = new Maze();
-            //maze.Order = mazeOrder;
+            
 
-            //this.Close();
+        }
+
+        private void SolveMaze_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+        private void MainMenu_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

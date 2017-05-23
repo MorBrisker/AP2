@@ -12,19 +12,45 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MVVM.ViewModel;
 
 namespace MVVM
 {
-    /// <summary>
-    /// Interaction logic for SinglePlayer.xaml
-    /// </summary>
     public partial class SinglePlayer : UserControl
     {
+
         public SinglePlayer()
         {
             InitializeComponent();
         }
-        private void btnStart_Click(object sender, RoutedEventArgs e) { }
+
+        public string MName
+        {
+            get { return (string)GetValue(MNameProperty); }
+            set { SetValue(MNameProperty, value); }
+        }
+        // Using a DependencyProperty as the backing store for Rows. This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty MNameProperty =
+         DependencyProperty.Register("MName", typeof(string), typeof(SinglePlayer));
+
+        public int Rows
+        {
+            get { return (int)GetValue(RowsProperty); }
+            set { SetValue(RowsProperty, value); }
+        }
+        // Using a DependencyProperty as the backing store for Rows. This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty RowsProperty =
+         DependencyProperty.Register("Rows", typeof(int), typeof(SinglePlayer));
+
+        public int Cols
+        {
+            get { return (int)GetValue(ColsProperty); }
+            set { SetValue(ColsProperty, value); }
+        }
+        // Using a DependencyProperty as the backing store for Rows. This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ColsProperty =
+         DependencyProperty.Register("Cols", typeof(int), typeof(SinglePlayer));
+
 
     }
 }

@@ -9,6 +9,7 @@ namespace MVVM
 {
     public class ApplicationSettingsModel : ISettingsModel
     {
+
         public string ServerIP
         {
             get { return MVVM.Properties.Settings.Default.ServerIP; }

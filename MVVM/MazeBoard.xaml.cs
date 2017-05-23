@@ -139,7 +139,7 @@ namespace MVVM
                 }
             }
             if (e.Key == Key.Right)
-            {
+            {//
                 if (col + 1 < m.Cols && m[row, col + 1] == CellType.Free)
                 {
                     Canvas.SetLeft(myImage, this.recWidth * (col+1));

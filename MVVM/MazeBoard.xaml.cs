@@ -93,6 +93,8 @@ namespace MVVM
                     }
                     else if (this.charArr[counter] == '*')
                     {
+                        //this.rectanglesArr[i, j].Fill = new SolidColorBrush(System.Windows.Media.Colors.Pink);
+
                         this.rectanglesArr[i, j].Fill = new SolidColorBrush(System.Windows.Media.Colors.Transparent);
                         myImage = new Image()
                         {
@@ -102,10 +104,10 @@ namespace MVVM
                             Height = this.recHeight
                         };
                         mazeCanvas.Children.Add(myImage);
-                        Canvas.SetLeft(myImage, this.recWidth * m.InitialPos.Col);
-                        Canvas.SetTop(myImage, this.recHeight * m.InitialPos.Row);
+                        Canvas.SetLeft(myImage, this.recWidth * j);
+                        Canvas.SetTop(myImage, this.recHeight * i);
                         counter++;
-                        break;
+                        continue;
                     }
                     else if (this.charArr[counter] == '#')
                     {
@@ -138,7 +140,7 @@ namespace MVVM
                     this.currentPos.Col -= 1;
                 }
             }
-            if (e.Key == Key.Right)
+            else if (e.Key == Key.Right)
             {//
                 if (col + 1 < m.Cols && m[row, col + 1] == CellType.Free)
                 {
@@ -147,7 +149,7 @@ namespace MVVM
                     this.currentPos.Col += 1;
                 }
             }
-            if (e.Key == Key.Up)
+            else if (e.Key == Key.Up)
             {
                 if (row - 1 >= 0 && m[row - 1, col] == CellType.Free)
                 {
@@ -157,7 +159,7 @@ namespace MVVM
 
                 }
             }
-            if (e.Key == Key.Down)
+            else if (e.Key == Key.Down)
             {
                 if (row + 1 < m.Rows && m[row + 1, col] == CellType.Free)
                 {
@@ -167,8 +169,11 @@ namespace MVVM
 
                 }
             }
+            if (currentPos.Col == m.GoalPos.Col && currentPos.Row == m.GoalPos.Row)
+            {
+                MessageBox.Show("You are almost as good as mor\n");
+
+            }
         }
-
-
     }
 }

@@ -172,7 +172,7 @@ namespace MVVM
             if (currentPos.Col == m.GoalPos.Col && currentPos.Row == m.GoalPos.Row)
             {
                 MessageBox.Show("You are almost as good as mor\n");
-
+                //
             }
         }
     }
